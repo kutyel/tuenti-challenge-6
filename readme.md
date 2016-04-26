@@ -1,3 +1,5 @@
 # Tuenti Challenge 6
 
-My solutions to the challenge, using 100% JavaScript (es2015)
+[![node](https://img.shields.io/node/v/uno-zen.svg)](https://nodejs.org/en/)
+
+My solutions for the programming contest, using 100% JavaScript (**es2015**)
