@@ -1,0 +1,8 @@
+{
+    "preset": "google",
+    "validateIndentation": 4,
+    "requireDotNotation": false,
+    "maximumLineLength": 120,
+    "disallowMultipleVarDecl": false,
+    "disallowSpacesInsideObjectBrackets": false
+}
