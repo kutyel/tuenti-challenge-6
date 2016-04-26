@@ -1,1 +1,21 @@
-// TODO: add input.txt
+---
+code:
+  start:
+    '#':
+      move: right
+      state: replace
+  replace:
+    '0':
+      write: '1'
+      move: right
+    '1':
+      state: end
+    ' ':
+      write: '#'
+      state: end
+tapes:
+  1: '#001'
+  2: '#0001' 
+  3: '#0'
+  4: '#1'
+...
