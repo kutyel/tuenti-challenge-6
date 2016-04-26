@@ -1,0 +1,28 @@
+{
+  "name": "tuenti-challenge-6",
+  "version": "0.1.0",
+  "description": "My solution for the programming contest 100% in JavaScript",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kutyel/tuenti-challenge-6.git"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "tuenti",
+    "challenge"
+  ],
+  "author": "kutyel",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 5.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/kutyel/tuenti-challenge-6/issues"
+  },
+  "homepage": "https://github.com/kutyel/tuenti-challenge-6#readme"
+}
