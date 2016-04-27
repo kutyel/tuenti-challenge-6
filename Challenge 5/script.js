@@ -3,7 +3,7 @@
 const fs = require('fs');
 const unirest = require('unirest');
 
-fs.unlink('./output.txt');
+fs.unlink('./options.txt');
 
 const url = 'http://52.49.91.111:9988';
 
@@ -15,7 +15,7 @@ words.filter(x => x.length === 4).forEach(x =>
         .send({ 'word': x })
         .end(response => {
             if (!response.error) {
-                fs.appendFileSync('./output.txt', response.body);
+                fs.appendFileSync('./options.txt', response.body);
             }
         })
 );
