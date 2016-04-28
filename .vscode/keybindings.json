@@ -1,0 +1,4 @@
+[
+	{ "key": "ctrl+l", "command": "workbench.action.editor.changeLanguageMode" },
+	{ "key": "ctrl+numpad_divide", "command": "editor.action.commentLine", "when": "editorTextFocus" }
+]
