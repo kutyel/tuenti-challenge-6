@@ -2,13 +2,14 @@
 
 const fs = require('fs');
 
-let cases = 0, t = 0;
+fs.unlink('./output.txt');
 
-fs.readFileSync('./testInput.txt').toString().split('\n').forEach(num => {
+let cases = 0;
+
+fs.readFileSync('./submitInput.txt').toString().split('\n').forEach((num, t) => {
 
     let r = 0;
 
-    // first line
     if (t === 0) {
         cases = num;
     } else if (t <= cases) {
@@ -37,6 +38,4 @@ fs.readFileSync('./testInput.txt').toString().split('\n').forEach(num => {
 
         fs.appendFileSync('./output.txt', result + '\n');
     }
-
-    t++;
 });
