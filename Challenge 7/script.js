@@ -83,11 +83,12 @@ while (t <= cases && index < inputFile.length) {
             r = 0;
             // otherwise, get the max sum of the rectangle
         } else {
-            // repeat the matrix, at least 3 times!
-            let augmentedMatrix = [];
-            matrix.forEach(x => augmentedMatrix.push(x.concat(...x)));
-            matrix.forEach(x => augmentedMatrix.push(x.concat(...x)));
-            r = findMaxSum(augmentedMatrix, m * 2, n * 2);
+            // repeat the matrix, at least 2 times
+            let augmentedMatrix = [], repeats = 2; m *= repeats; n *= repeats;
+            while (repeats--) {
+                matrix.forEach(x => augmentedMatrix.push(x.concat(...x)));
+            }
+            r = findMaxSum(augmentedMatrix, m, n);
         }
         const result = `Case #${t}: ${r}`;
         console.log(result);
