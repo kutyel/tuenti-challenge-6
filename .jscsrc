@@ -4,5 +4,8 @@
     "requireDotNotation": false,
     "maximumLineLength": 120,
     "disallowMultipleVarDecl": false,
-    "disallowSpacesInsideObjectBrackets": false
+    "disallowSpacesInsideObjectBrackets": false,
+    "excludeFiles": [
+        "node_modules"
+    ]
 }
