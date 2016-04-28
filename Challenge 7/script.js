@@ -43,32 +43,27 @@ function findMaxSum(matrix, numCols, numRows) {
 
 let t = 1, index = 1, indexOfCase = 1;
 
-const inputFile = fs.readFileSync(input).toString().split('\n');
-
-const cases = +inputFile[0];
+const inputFile = fs.readFileSync(input).toString().split('\n'), cases = +inputFile[0];
 
 let r = 0, n = 0, m = 0, matrix = [], initializingMatrix = false, finishedCase = false;
 
 while (t <= cases && index < inputFile.length) {
-
     const line = inputFile[index];
 
     if (index === indexOfCase) {
         n = +line.split(' ')[0];
         m = +line.split(' ')[1];
 
-        // next case index
         matrix = [];
         indexOfCase += (n + 1);
         initializingMatrix = true;
         finishedCase = false;
     } else if (initializingMatrix) {
         let aux = [];
-
-        for (let y = 0; y < m; y++) {
-            let num = UPPER.indexOf(line[y]);
+        for (let i = 0; i < m; i++) {
+            let num = UPPER.indexOf(line[i]);
             if (num < 0) {
-                num = LOWER.indexOf(line[y]) * -1;
+                num = LOWER.indexOf(line[i]) * -1;
             }
             aux.push(num);
         }
@@ -80,7 +75,6 @@ while (t <= cases && index < inputFile.length) {
         }
     }
     if (finishedCase) {
-
         // if all the numbers are positive -> the max sum is Infinity
         if (matrix.every(x => x.every(y => y > 0))) {
             r = 'INFINITY';
@@ -89,15 +83,15 @@ while (t <= cases && index < inputFile.length) {
             r = 0;
             // otherwise, get the max sum of the rectangle
         } else {
-            r = findMaxSum(matrix, m, n);
+            // repeat the matrix, at least 3 times!
+            let augmentedMatrix = [];
+            matrix.forEach(x => augmentedMatrix.push(x.concat(...x)));
+            matrix.forEach(x => augmentedMatrix.push(x.concat(...x)));
+            r = findMaxSum(augmentedMatrix, m * 2, n * 2);
         }
-
         const result = `Case #${t}: ${r}`;
-
         console.log(result);
-
         fs.appendFileSync(output, result + '\n');
-
         t++;
     }
     index++;
