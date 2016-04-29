@@ -1,13 +1,17 @@
 'use strict';
 
 const fs = require('fs');
-const input = 'testInput.txt';
+const input = 'submitInput.txt';
 const output = 'output.txt';
 
 fs.unlink(output);
 
 const UPPER = '.ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const LOWER = '.abcdefghijklmnopqrstuvwxyz';
+
+function sum(array) {
+    return array.reduce((x, y) => x += y, 0);
+}
 
 function kadane(a) {
     var now = 0, prev = 0;
@@ -58,7 +62,7 @@ while (t <= cases && index < inputFile.length) {
         m = +line.split(' ')[1];
 
         matrix = [];
-        indexOfCase += (n + 1);
+        indexOfCase += n + 1;
         initializingMatrix = true;
         finishedCase = false;
     } else if (initializingMatrix) {
@@ -78,8 +82,12 @@ while (t <= cases && index < inputFile.length) {
         }
     }
     if (finishedCase) {
+        // transpose the matrix to check for Infinity
+        const transposedMatrix = matrix[0].map((col, i) => matrix.map(row => row[i]));
         // if all the numbers are positive -> the max sum is Infinity
-        if (matrix.every(x => x.every(y => y > 0))) {
+        if (matrix.every(x => x.every(y => y > 0)) ||
+            // or the sum of any row or col is a positive number (thanks to @nramirez)
+            matrix.some(x => sum(x) > 0) || transposedMatrix.some(x => sum(x) > 0)) {
             r = 'INFINITY';
             // if all numbers are negative -> the max sum is the empty rectangle, 0
         } else if (matrix.every(x => x.every(y => y < 0))) {
@@ -89,7 +97,7 @@ while (t <= cases && index < inputFile.length) {
             // repeat the matrix, at least 2 times
             let augmentedMatrix = [], repeats = 2; m *= repeats; n *= repeats;
             while (repeats--) {
-                matrix.forEach(x => augmentedMatrix.push(x.concat(...x)));
+                matrix.forEach(arr => augmentedMatrix.push(arr.concat(arr)));
             }
             r = findMaxSum(augmentedMatrix, m, n);
         }
