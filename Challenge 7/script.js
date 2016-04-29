@@ -1,8 +1,6 @@
 'use strict';
 
 const fs = require('fs');
-const subarray = require('max-subarray');
-
 const input = 'testInput.txt';
 const output = 'output.txt';
 
@@ -11,8 +9,13 @@ fs.unlink(output);
 const UPPER = '.ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const LOWER = '.abcdefghijklmnopqrstuvwxyz';
 
-function kadane(array) {
-    return subarray(array).reduce((ac, v) => ac += v, 0);
+function kadane(a) {
+    var now = 0, prev = 0;
+    for (var i = 0; i < a.length; i++) {
+        prev = Math.max(0, prev + a[i]);
+        now = Math.max(prev, now);
+    }
+    return now;
 }
 
 function findMaxSum(matrix, numCols, numRows) {
