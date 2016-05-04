@@ -1,6 +1,6 @@
 # Challenge 2 - The Voynich Manuscript
 
-![voynich](https://contest.tuenti.net/resources/voynich.jpg)
+![voynich](https://raw.githubusercontent.com/kutyel/tuenti-challenge-6/master/Challenge%202/voynich.jpg?token=AE49Td4WmsM0jkPglWeToReJPMmEs8Kpks5XMtC7wA%3D%3D)
 
 The Voynich manuscript is an illustrated codex hand-written in an unknown writing system.
 
