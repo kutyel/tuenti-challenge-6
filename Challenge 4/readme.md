@@ -3,11 +3,11 @@ Ryu is training for the upcoming Street Fighter tournament using the following m
 
 **Moves**
 
-![artboard](https://contest.tuenti.net/resources/img/artboard.png)
+![artboard](https://raw.githubusercontent.com/kutyel/tuenti-challenge-6/master/Challenge%204/artboard.png?token=AE49TVbeZDezBfmuXUnB-U5RgiwRbuVUks5XMtQEwA%3D%3D)
 
 **Combos**
 
-![combos](https://contest.tuenti.net/resources/img/combo.png)
+![combos](https://raw.githubusercontent.com/kutyel/tuenti-challenge-6/master/Challenge%204/combo.png?token=AE49Ta8iypR4p6KMqmLlIOmcVO9m_X1bks5XMtQGwA%3D%3D)
 
 Assuming Ryu can't finish two combos at the same time, can you count the number of times Ryu does not perform a combo because the last move is missing?
 
