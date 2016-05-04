@@ -1,7 +1,7 @@
 # Challenge 3 - YATM Microservice
 At Tuenti, we have a degree of freedom to choose the language of different microservices. Each microservice is based on what the developer knows best and what they think is the most suitable platform for the thing they are solving. We recently discovered a microservice running on an old platform, and we want to create a docker image in order to replace it with newer instances. We were able to extract the code from the machines and we also dumped the contents, which originally looked like this:
 
-<p style="text-align: center"><img src="https://contest.tuenti.net/resources/img/yatm.jpg"></p>
+![yatm](https://raw.githubusercontent.com/kutyel/tuenti-challenge-6/master/Challenge%203/yatm.jpg?token=AE49TePWzTgBly_hDvWCeesaB2btaNZ9ks5XMtGSwA%3D%3D)
 
 We have also saved what the original machine was returning for those tapes, which could be useful for debugging. So we need you to help us write an interpreter for that code.
 
