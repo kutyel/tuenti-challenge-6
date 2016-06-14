@@ -1,20 +1,18 @@
-input = open('testInput.txt', 'r')
+input = open('submitInput.txt', 'r')
+cases = int(input.readline())
 lines = input.readlines()
+test = 1
 
-for i in lines:
-    if i == 0:
-        cases = int(lines[0])
-    elif i <= cases:
-        people = int(lines[i])
+for l in lines:
+    result = 0
+    people = int(l)
 
-        if people == 4:
-            r = 1
-        else:
-            while people > 0:
-                if r < 1:
-                    people -= 4
-                else:
-                    people -= 2
-                r += 1
+    if people == 4:
+        result = 1
+    else:
+        while people > 0:
+            people -= 4 if result < 1 else 2
+            result += 1
 
-        print "Case #%d: %d" % (i, r)
+    print "Case #%d: %d" % (test, result)
+    test += 1
