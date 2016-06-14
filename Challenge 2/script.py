@@ -18,7 +18,7 @@ for line in lines:
         else:
             result[word] = 1
 
-    top = sorted(result.items(), key=operator.itemgetter(1))
+    top = sorted(result.items(), key=operator.itemgetter(1), reverse=True)
 
     print "Case #%d: %s %d,%s %d,%s %d" % (test, top[0][0], top[0][1], top[1][0], top[1][1], top[2][0], top[2][1])
     
