@@ -14,13 +14,12 @@ breaks = [
     "-R-D-RD-",
     "-D-LD-L-"
 ]
-test = 1
 
-for l in lines:
+for test, line in enumerate(lines):
     result = 0
     offset = 0
     last10 = ""
-    moves = "-" + l + "-"
+    moves = "-" + line + "-"
     possible_combo = False
 
     while offset < len(moves):
@@ -60,4 +59,3 @@ for l in lines:
         result += 1
 
     print("Case #{0}: {1}".format(test, result), file=outpt)
-    test += 1
