@@ -3,21 +3,26 @@ import operator
 
 corpus = open('corpus.txt', 'r').readline().split(' ')
 output = open('output.txt', 'w')
-input = open('testInput.txt', 'r')
-cases = int(input.readline())
-lines = input.readlines()
 
-for test, line in enumerate(lines):
-    results = {}
-    [start, end] = line.split(' ')
+with open('testInput.txt', 'r') as input_:
+    cases = input_.readline()
+    lines = input_.readlines()
 
-    for i in range(int(start), int(end)):
-        word = corpus[i]
-        if word in results:
-            results[word] += 1
-        else:
-            results[word] = 1
+    for test, line in enumerate(lines):
+        results = {}
 
-    top = sorted(results.items(), key=operator.itemgetter(1), reverse=True)
+        for i in range(*map(int, line.split(" ", 1))):
+            word = corpus[i]
+            try:
+                if word in results:
+                    results[word] += 1
+                else:
+                    results[word] = 1
+            except:
+                print("Something went wrong checking the dictionary!")
 
-    print("Case #{0}: {1}".format(test+1, ",".join(map((lambda x: "{0} {1}".format(x[0], x[1])), top[:3]))), file=output)
+        top = sorted(results.items(), key=operator.itemgetter(1),
+                     reverse=True)
+
+        print("Case #{0}: {1}".format(test+1, ",".join(map((lambda x:
+              "{0} {1}".format(x[0], x[1])), top[:3]))), file=output)
