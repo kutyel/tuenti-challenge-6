@@ -1,20 +1,20 @@
 from __future__ import print_function
 
 output = open('output.txt', 'w')
+combos = [
+    "-D-RD-R-P-",
+    "-R-D-RD-P-",
+    "-D-LD-L-K-"
+]
+breaks = [
+    "-D-RD-R-",
+    "-R-D-RD-",
+    "-D-LD-L-"
+]
 
 with open('testInput.txt', 'r') as input_:
     cases = int(input_.readline())
     lines = input_.readlines()
-    combos = [
-        "-D-RD-R-P-",
-        "-R-D-RD-P-",
-        "-D-LD-L-K-"
-    ]
-    breaks = [
-        "-D-RD-R-",
-        "-R-D-RD-",
-        "-D-LD-L-"
-    ]
 
     for test, line in enumerate(lines):
         result, offset = 0, 0
