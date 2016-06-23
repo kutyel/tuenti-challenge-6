@@ -7,15 +7,12 @@ with open("testInput.txt", "r") as file:
     input_ = yaml.load(file)
 
     for test, tape in input_["tapes"].items():  
-        off = 0
-        state = "start"
+        off, state = 0, "start"
 
         while state != "end":
-            if off < len(tape):
-                c = tape[off]
-            else:
-                c = " "
+            if off >= len(tape):
                 tape += " "
+            c = tape[off]
             # there are 3 possible actions in each "state"
             action = input_["code"][state][c]
             # 1. write
