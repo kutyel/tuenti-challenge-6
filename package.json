@@ -25,9 +25,8 @@
     "url": "https://github.com/kutyel/tuenti-challenge-6/issues"
   },
   "homepage": "https://github.com/kutyel/tuenti-challenge-6#readme",
-  "dependencies": {
-    "mathjs": "^3.2.1",
-    "max-subarray": "0.0.2",
-    "unirest": "^0.4.2"
+  "dependencies": {},
+  "devDependencies": {
+    "standard": "^7.1.2"
   }
 }
