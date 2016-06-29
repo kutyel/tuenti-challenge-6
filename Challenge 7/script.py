@@ -26,12 +26,12 @@ def find_max_sum(matrix, num_cols, num_rows):
 with open("submitInput.txt", "r") as input_:
     cases = int(input_.readline())
     lines = input_.readlines()
-    test, index_of_case = 1, 1
-    result, index, n, m = 0, 0, 0, 0
+    result, index, index_of_case, n, m = 0, 0, 0, 0, 0
+    test = 1
     matrix = []
     initializing_matrix, finished_case = False, False
 
-    while test <= cases and index < len(lines):
+    while test <= cases:
         line = lines[index]
 
         if index == index_of_case:
@@ -43,9 +43,12 @@ with open("submitInput.txt", "r") as input_:
         elif initializing_matrix:
             aux = []
             for i in range(0, m):
-                num = "." + string.ascii_uppercase.index(line[i])
-                if num < 0:
-                    num = "." + string.ascii_lowercase.index(line[i]) * -1
+                try:
+                    num = ("." + string.ascii_uppercase).index(line[i])
+                except ValueError:
+                    num = ("." + string.ascii_lowercase).index(line[i]) * -1
+                except:
+                    num = 0
                 aux.append(num)
             matrix.append(aux)
 
@@ -54,9 +57,8 @@ with open("submitInput.txt", "r") as input_:
                 finished_case = True
 
         if finished_case:
-            transposed_matrix = zip(*matrix)
             # if the sum of any row or col is positive
-            if any(map(lambda x: sum(x) > 0, matrix)) or any(map(lambda x: sum(x) > 0, transposed_matrix)):
+            if any(map(lambda x: sum(x) > 0, matrix)) or any(map(lambda x: sum(x) > 0, zip(*matrix))):
                 result = "INFINITY"
             # if all numbers in the matrix are negative
             elif all(all(y < 0 for y in x) for x in matrix):
