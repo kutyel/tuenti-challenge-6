@@ -1,10 +1,8 @@
 from __future__ import print_function
 import numpy as np
+import string
 
 output = open("output.txt", "w")
-
-UPPER = ".ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-LOWER = ".abcdefghijklmnopqrstuvwxyz"
 
 def kadane(array):
     now, prev = 0, 0
@@ -28,8 +26,8 @@ def find_max_sum(matrix, num_cols, num_rows):
 with open("submitInput.txt", "r") as input_:
     cases = int(input_.readline())
     lines = input_.readlines()
-    test, index, index_of_case = 1, 1, 1
-    result, n, m = 0, 0, 0
+    test, index_of_case = 1, 1
+    result, index, n, m = 0, 0, 0, 0
     matrix = []
     initializing_matrix, finished_case = False, False
 
@@ -45,9 +43,9 @@ with open("submitInput.txt", "r") as input_:
         elif initializing_matrix:
             aux = []
             for i in range(0, m):
-                num = UPPER.index(line[i])
+                num = "." + string.ascii_uppercase.index(line[i])
                 if num < 0:
-                    num = LOWER.index(line[i]) * -1
+                    num = "." + string.ascii_lowercase.index(line[i]) * -1
                 aux.append(num)
             matrix.append(aux)
 
