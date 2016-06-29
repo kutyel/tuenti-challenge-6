@@ -16,7 +16,7 @@ with open("output.txt", "w") as output:
                 response = sock.recv(1024)
                 print(response)
                 # TODO: use this regex to filter words
-                print(re.findall("_*\s*\w*", response))
+                print(re.match("(_|\w) ", response))
     except socket.error as e:
         print("Error: {0}".format(e))
         sock.close()
