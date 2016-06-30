@@ -2,7 +2,17 @@ from __future__ import print_function
 import re
 import socket
 
-words = [word for word in open("words.txt") if len(word) == 5]
+words = [word for word in open("words.txt")]
+
+def filter_words(regex):
+    reg = re.compile(regex)
+    return filter(reg.match, words)
+
+def create_regex(search):
+    result = ""
+    for s in search:
+        result += "[A-Z]" if s == "_" else s
+    return result + "\n"
 
 with open("output.txt", "w") as output:
     sock = socket.socket()
@@ -11,12 +21,13 @@ with open("output.txt", "w") as output:
         while True:
             # press enter to continue
             sock.send("\n")
-            for word in words:
-                sock.send(word)
-                response = sock.recv(1024)
-                print(response)
-                # TODO: use this regex to filter words
-                print(re.match("(_|\w) ", response))
+            res = sock.recv(1024)
+            print(res)
+            match = re.findall("(_|[A-Z]) (_|[A-Z]) (_|[A-Z]) (_|[A-Z])", res)
+            if len(match) >= 1:
+                # filter words every time we have a match
+                for word in filter_words(create_regex(match[0])):
+                    sock.send(word)
     except socket.error as e:
         print("Error: {0}".format(e))
         sock.close()
