@@ -9,10 +9,7 @@ def filter_words(regex):
     return filter(reg.match, words)
 
 def create_regex(search):
-    result = ""
-    for s in search:
-        result += "[A-Z]" if s == "_" else s
-    return result + "\n"
+    return "".join(search).replace("_", "[A-Z]") + "\n"
 
 with open("output.txt", "w") as output:
     sock = socket.socket()
