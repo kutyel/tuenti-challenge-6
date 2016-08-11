@@ -18,9 +18,12 @@ with open("output.txt", "w") as output:
         while True:
             # press enter to continue
             sock.send("\n")
+            
             res = sock.recv(1024)
             print(res)
+            
             match = re.findall("(_|[A-Z]) (_|[A-Z]) (_|[A-Z]) (_|[A-Z])", res)
+            
             if len(match) >= 1:
                 # filter words every time we have a match
                 for word in filter_words(create_regex(match[0])):
